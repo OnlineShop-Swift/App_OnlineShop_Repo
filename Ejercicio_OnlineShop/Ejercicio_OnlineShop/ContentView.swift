@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+//Mi cambio
 struct ContentView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello, Iratxe!")
+            Text("Hello, Irene!")
+            Text("Hello, Carlos?")
+            Text("Hello, Inés?")
         }
         .padding()
     }
