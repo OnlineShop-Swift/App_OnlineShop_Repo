@@ -17,10 +17,9 @@ class ProductosViewModel: ObservableObject {
     func getProductos(){
             Task{ //hace que sea asíncrona la tarea, consiguiendo concurrencia
                 do{
-                    let producto = try await NetworkManager.shared.getProductos()
-                    for elemento in producto.producto{
-                        self.productos.append(elemento)
-                    }
+                    let productos = try await NetworkManager.shared.getProductos()
+                    self.productos = productos
+                    
                 }catch{
                     
                     if let callError = error as? WEError {
