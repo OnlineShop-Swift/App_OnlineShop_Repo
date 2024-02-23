@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct Productos: Hashable, Codable, Identifiable{
-    let id = UUID().uuidString
-    var producto : [Producto]
-}
-
 struct Producto: Hashable, Codable, Identifiable{
     var id : Int
     var title : String

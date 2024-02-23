@@ -10,7 +10,19 @@ import SwiftUI
 struct ProductoListView: View {
     @ObservedObject var productos: ProductosViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(productos.productos) { produc in
+            Text(produc.title)
+            Text(String(produc.id))
+
+                
+        }
+    
+        //Text(String(productos.productos[0].price))
+        Text(String(productos.productos.isEmpty))
+
+        ForEach(productos.productos) { product in
+            Text(product.title)
+        }
     }
 }
 
