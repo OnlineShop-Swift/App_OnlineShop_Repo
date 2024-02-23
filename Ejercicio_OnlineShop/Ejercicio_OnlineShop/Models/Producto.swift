@@ -12,7 +12,7 @@ struct Productos: Hashable, Codable, Identifiable{
     var producto : [Producto]
 }
 
-struct Producto: Hashable, Codable{
+struct Producto: Hashable, Codable, Identifiable{
     var id : Int
     var title : String
     var price: Double

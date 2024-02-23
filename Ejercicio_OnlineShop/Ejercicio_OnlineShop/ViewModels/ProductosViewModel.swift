@@ -9,12 +9,18 @@ import Foundation
 
 class ProductosViewModel: ObservableObject {
     @Published var productos: [Producto]
+    init() {
+        self.productos = [Producto]()
+        getProductos()
+    }
     
-    func getProductos(url:String){
+    func getProductos(){
             Task{ //hace que sea asíncrona la tarea, consiguiendo concurrencia
                 do{
                     let producto = try await NetworkManager.shared.getProductos()
-                    self.productos.append(producto)
+                    for elemento in producto.producto{
+                        self.productos.append(elemento)
+                    }
                 }catch{
                     
                     if let callError = error as? WEError {
