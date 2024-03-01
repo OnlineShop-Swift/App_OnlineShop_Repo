@@ -11,15 +11,27 @@ struct ProductoRow: View {
     var producto: Producto
     var body: some View {
         HStack {
-            Text(producto.title)
-            Text(String(producto.price))
-            Spacer()
+            AsyncImage(url: URL(string:producto.image)){
+                image in image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width:75, height:90)
+            .padding()
+            VStack{
+                HStack{
+                    Text(producto.title).bold()
+                    Spacer()
+                }
+                HStack{
+                    Text("$" + String(producto.price))
+                        .foregroundColor(Color.gray)
+                    Spacer()
+                }
+                
+            }
         }
     }
 }
 var lista = ProductosViewModel()
-#Preview {
-    Group{
-        ProductoRow(producto: lista.productos[1])
-    }
-}
+

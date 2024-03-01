@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct ProductoListView: View {
-    @ObservedObject var productos: ProductosViewModel
+    @ObservedObject var list: ProductosViewModel
     var body: some View {
-        ForEach(productos.productos) { produc in
-            Text(produc.title)
-            Text(String(produc.id))
-
-                
-        }
-    
-        //Text(String(productos.productos[0].price))
-        Text(String(productos.productos.isEmpty))
-
-        ForEach(productos.productos) { product in
-            Text(product.title)
-        }
+        NavigationSplitView{
+                List(list.productos){ current in
+                    NavigationLink{
+                        
+                    } label: {
+                        ProductoRow(producto: current)
+                    }
+                }
+                .navigationTitle("Products")
+            
+            }detail: {
+                Text("Select Product")
+            }
     }
 }
 
 #Preview {
-    ProductoListView(productos: ProductosViewModel())
+    ContentView()
 }
