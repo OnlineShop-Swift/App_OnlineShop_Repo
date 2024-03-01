@@ -19,7 +19,6 @@ class ProductosViewModel: ObservableObject {
                 do{
                     let productos = try await NetworkManager.shared.getProductos()
                     self.productos = productos
-                    
                 }catch{
                     
                     if let callError = error as? WEError {

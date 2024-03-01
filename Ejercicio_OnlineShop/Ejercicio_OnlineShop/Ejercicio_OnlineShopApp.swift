@@ -11,7 +11,8 @@ import SwiftUI
 struct Ejercicio_OnlineShopApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProductoListView(list: ProductosViewModel())
         }
     }
+
 }

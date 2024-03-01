@@ -11,6 +11,10 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var productos = ProductosViewModel()
     var body: some View {
-        ProductoListView(productos: productos)
+        Text("")
     }
+}
+
+#Preview {
+    ContentView()
 }
