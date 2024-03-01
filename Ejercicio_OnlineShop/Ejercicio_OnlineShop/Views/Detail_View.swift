@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Detail_View: View {
-    var producto: Producto
+    @State var producto: Producto
 
     var body: some View {
         VStack {
@@ -19,6 +19,7 @@ struct Detail_View: View {
             }
             .frame(width: 150, height: 150)
             .padding(.bottom)
+            
             Text(producto.title)
                 .font(.title)
                 .padding(.vertical)
@@ -26,27 +27,28 @@ struct Detail_View: View {
             Text(producto.description)
                 .font(.title)
                 .padding(.vertical)
-                .fontWeight(.bold)
-            
-           
+                .lineLimit(3)
+            BotonAddCart(producto: $producto)
+        
             
         }
+        .padding()
         
         
         
     }
 }
 struct BotonAddCart : View {
-    
+    @Binding var producto: Producto
     var body: some View {
-        Button("Change day time", action: addCart)
+        Button("$" + String(producto.price) + " - Checkout", action: addCart)
             .padding()
             .padding(.horizontal)
             .foregroundColor(.white)
-            .background(Color.blue)
+            .background(Color.coloPrim)
             .cornerRadius(10.0)
             .fontWeight(.bold)
-        Spacer()
+        
     }
     
     func addCart() {
@@ -59,5 +61,5 @@ struct BotonAddCart : View {
 
 
 #Preview {
-    Detail_View(producto: Producto(id: 1, title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", price: 109.95, description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday", image: "https://fakestoreapi.com…PKd-2AYL._AC_SL1500_.jpg", rating: Rating(rate: 3.9)))
+    Detail_View(producto: Producto(id: 1, title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", price: 109.95, description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday", image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", rating: Rating(rate: 3.9)))
 }
