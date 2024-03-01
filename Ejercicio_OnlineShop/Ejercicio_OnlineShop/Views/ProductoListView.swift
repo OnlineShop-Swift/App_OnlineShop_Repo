@@ -13,7 +13,7 @@ struct ProductoListView: View {
         NavigationSplitView{
                 List(list.productos){ current in
                     NavigationLink{
-                        
+                        Detail_View(producto: current)
                     } label: {
                         ProductoRow(producto: current)
                     }
