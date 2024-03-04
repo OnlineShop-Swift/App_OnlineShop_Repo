@@ -21,7 +21,7 @@ struct FooterView: View {
                     Label("Account", systemImage: "person.fill")
                 }
             OrderView()
-                //.badge("")
+                //.badge(_ Count:int)
                 .tabItem {
                     Label("Order", systemImage: "cart.fill")
                 }
