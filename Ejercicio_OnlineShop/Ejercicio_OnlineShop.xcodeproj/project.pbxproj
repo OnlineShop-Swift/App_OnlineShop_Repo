@@ -13,10 +13,10 @@
 		026DACDE2B96593300D0B1BC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 026DACDD2B96593300D0B1BC /* FirebaseFirestore */; };
 		026DACE02B96593300D0B1BC /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 026DACDF2B96593300D0B1BC /* FirebaseFirestoreCombine-Community */; };
 		026DACE22B96593300D0B1BC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 026DACE12B96593300D0B1BC /* FirebaseFirestoreSwift */; };
-		026DACE52B96596100D0B1BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026DACE42B96596100D0B1BC /* GoogleService-Info.plist */; };
 		026DACE72B965A2700D0B1BC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 026DACE62B965A2700D0B1BC /* FirebaseFirestore */; };
 		026DACE92B965A2700D0B1BC /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 026DACE82B965A2700D0B1BC /* FirebaseFirestoreCombine-Community */; };
 		026DACEB2B965A2700D0B1BC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 026DACEA2B965A2700D0B1BC /* FirebaseFirestoreSwift */; };
+		026DACEF2B965E8400D0B1BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 026DACEE2B965E8400D0B1BC /* GoogleService-Info.plist */; };
 		02BE070A2B717323007A691C /* Ejercicio_OnlineShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE07092B717323007A691C /* Ejercicio_OnlineShopApp.swift */; };
 		02BE070C2B717323007A691C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE070B2B717323007A691C /* ContentView.swift */; };
 		02BE070E2B717325007A691C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BE070D2B717325007A691C /* Assets.xcassets */; };
@@ -55,7 +55,7 @@
 		024823092B891DCE004AB8C4 /* Detail_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail_View.swift; sourceTree = "<group>"; };
 		0248230B2B891E07004AB8C4 /* ProductoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoListView.swift; sourceTree = "<group>"; };
 		0248230D2B893026004AB8C4 /* ProductoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoRow.swift; sourceTree = "<group>"; };
-		026DACE42B96596100D0B1BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		026DACEE2B965E8400D0B1BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02BE07062B717323007A691C /* Ejercicio_OnlineShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ejercicio_OnlineShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BE07092B717323007A691C /* Ejercicio_OnlineShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ejercicio_OnlineShopApp.swift; sourceTree = "<group>"; };
 		02BE070B2B717323007A691C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		02BE06FD2B717323007A691C = {
 			isa = PBXGroup;
 			children = (
-				026DACE42B96596100D0B1BC /* GoogleService-Info.plist */,
+				026DACEE2B965E8400D0B1BC /* GoogleService-Info.plist */,
 				02BE07082B717323007A691C /* Ejercicio_OnlineShop */,
 				02BE07192B717325007A691C /* Ejercicio_OnlineShopTests */,
 				02BE07232B717325007A691C /* Ejercicio_OnlineShopUITests */,
@@ -334,7 +334,7 @@
 			files = (
 				02BE07112B717325007A691C /* Preview Assets.xcassets in Resources */,
 				02BE070E2B717325007A691C /* Assets.xcassets in Resources */,
-				026DACE52B96596100D0B1BC /* GoogleService-Info.plist in Resources */,
+				026DACEF2B965E8400D0B1BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
