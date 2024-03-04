@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct FooterView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            ProductoListView(list: ProductosViewModel())
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+            AccountView()
+                
+                .tabItem {
+                    Label("Account", systemImage: "person.fill")
+                }
+            OrderView()
+                //.badge("")
+                .tabItem {
+                    Label("Order", systemImage: "cart.fill")
+                }
+            
+        }
+
     }
+
 }
 
 #Preview {

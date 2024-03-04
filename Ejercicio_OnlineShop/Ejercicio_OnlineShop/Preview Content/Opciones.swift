@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class Opciones: ObservableObject {
+    @Published var fondoClaro = true
+    @Published var pantalla = 1
+}
