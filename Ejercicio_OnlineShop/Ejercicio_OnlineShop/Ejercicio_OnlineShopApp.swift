@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct Ejercicio_OnlineShopApp: App {
+    init(){
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             ProductoListView(list: ProductosViewModel())
         }
     }
-
 }
