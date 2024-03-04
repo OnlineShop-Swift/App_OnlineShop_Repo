@@ -20,8 +20,8 @@ struct FooterView: View {
                 .tabItem {
                     Label("Account", systemImage: "person.fill")
                 }
-            OrderView()
-                //.badge(_ Count:int)
+            OrderView(list: ProductosViewModel())
+                //.badge()
                 .tabItem {
                     Label("Order", systemImage: "cart.fill")
                 }

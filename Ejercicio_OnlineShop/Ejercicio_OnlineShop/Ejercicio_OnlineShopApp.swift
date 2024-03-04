@@ -15,7 +15,7 @@ struct Ejercicio_OnlineShopApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ProductoListView(list: ProductosViewModel())
+            ContentView()
         }
     }
 }

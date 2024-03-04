@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Detail_View: View {
     @State var producto: Producto
+    
 
     var body: some View {
         VStack {
@@ -39,6 +40,7 @@ struct Detail_View: View {
     }
 }
 struct BotonAddCart : View {
+    @ObservedObject private var vm = ProductosViewModel()
     @Binding var producto: Producto
     var body: some View {
         Button("$" + String(producto.price) + " - Checkout", action: addCart)
@@ -52,7 +54,7 @@ struct BotonAddCart : View {
     }
     
     func addCart() {
-        print("bh")
+        self.vm.add(id: producto.id, title: producto.title, price: producto.price, description: producto.description, image: producto.image, rating: producto.rating)
             
     }
     
