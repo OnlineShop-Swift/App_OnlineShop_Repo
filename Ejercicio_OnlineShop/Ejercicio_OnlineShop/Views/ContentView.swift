@@ -10,11 +10,24 @@ import SwiftUI
 //Mi cambio
 struct ContentView: View {
     @ObservedObject var productos = ProductosViewModel()
+    @ObservedObject var opciones: Opciones = Opciones()
     var body: some View {
-        Text("")
+        FooterView()
+            .environmentObject(opciones)
+        
+        //ProductoListView(list: productos)
+            //.environmentObject(opciones)
+        
     }
 }
 
-#Preview {
-    ContentView()
+
+
+struct ContentView_Previews: PreviewProvider {
+    //static let opciones = Opciones()
+
+    static var previews: some View {
+        ContentView()
+            //.environmentObject(opciones)
+    }
 }
