@@ -13,10 +13,10 @@ public struct RatingView: View {
 
     public var body: some View {
         ZStack {
-            BackgroundStars(color: Color.gray)
+            BackgroundStars(color: Color.yellow)
             ForegroundStars(rating: rating, color: Color.yellow)
         }
-        .frame(minWidth: 1, idealWidth: 100, maxWidth: 150, minHeight: 1, idealHeight: 30, maxHeight: 50, alignment: .center)
+        .frame(width: 80, height: 20, alignment: .center)
 
     }
 }
@@ -30,6 +30,15 @@ private struct StarImage: View {
             .aspectRatio(contentMode: .fill)
     }
 }
+private struct StarImageBackground: View {
+
+
+    var body: some View {
+        Image(systemName: "star")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+    }
+}
 
 
 private struct BackgroundStars: View {
@@ -39,7 +48,7 @@ private struct BackgroundStars: View {
     var body: some View {
         HStack {
             ForEach(0..<5) { _ in
-                StarImage()
+                StarImageBackground()
             }
         }.foregroundColor(color)
     }

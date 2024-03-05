@@ -28,6 +28,8 @@ struct Detail_View: View {
                 .font(.title)
                 .padding(.vertical)
                 .lineLimit(3)
+            RatingView(rating: Decimal(producto.rating.rate))
+                .padding(.bottom)
             BotonAddCart(producto: $producto)
         
             
