@@ -24,6 +24,7 @@ struct OrderView: View {
            
             BotonAddOrder()
                 .environmentObject(opciones)
+                .padding()
         }
         
     }
@@ -45,6 +46,8 @@ struct BotonAddOrder : View {
     }
     
     func addOrder() {
+        
+        opciones.seleccion = []
         
     }
     func precioTotal() -> String{

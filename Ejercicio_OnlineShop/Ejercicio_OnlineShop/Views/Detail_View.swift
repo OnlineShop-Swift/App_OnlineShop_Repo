@@ -11,6 +11,7 @@ import Foundation
 struct Detail_View: View {
     @State var producto: Producto
     @EnvironmentObject var opciones: Opciones
+    @Environment(\.colorScheme) var colorScheme
     //@State var captura : UIImage
 
     var body: some View {
@@ -39,6 +40,7 @@ struct Detail_View: View {
             
         }
         .padding()
+        .background(colorScheme == .dark ? Color.black: Color.white)
         
         
         
@@ -53,7 +55,7 @@ struct BotonAddCart : View {
             .padding()
             .padding(.horizontal)
             .foregroundColor(.white)
-            .background(Color.coloPrim)
+            .background(Color.coloPrueba)
             .cornerRadius(10.0)
             .fontWeight(.bold)
         
