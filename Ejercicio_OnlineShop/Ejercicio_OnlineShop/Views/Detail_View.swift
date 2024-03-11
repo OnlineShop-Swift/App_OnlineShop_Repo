@@ -10,6 +10,7 @@ import Foundation
 
 struct Detail_View: View {
     @State var producto: Producto
+    @EnvironmentObject var opciones: Opciones
     //@State var captura : UIImage
 
     var body: some View {
@@ -33,6 +34,7 @@ struct Detail_View: View {
             RatingView(rating: Decimal(producto.rating.rate))
                 .padding(.bottom)
             BotonAddCart(producto: $producto)
+                .environmentObject(opciones)
         
             
         }
@@ -44,6 +46,7 @@ struct Detail_View: View {
 }
 struct BotonAddCart : View {
     @Binding var producto: Producto
+    @EnvironmentObject var opciones: Opciones
     var body: some View {
         Button("$" + String(producto.price) + " - Checkout", action: addCart)
             .padding()
@@ -56,8 +59,7 @@ struct BotonAddCart : View {
     }
     
     func addCart() {
-        print("bh")
-            
+        opciones.seleccion.append(producto)
     }
     
 }

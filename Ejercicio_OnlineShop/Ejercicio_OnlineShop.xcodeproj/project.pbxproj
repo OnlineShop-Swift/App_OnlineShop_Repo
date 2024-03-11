@@ -206,16 +206,24 @@
 		02BE07372B717CE7007A691C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42CFD63D2B9F7E2D00C5E805 /* MainViews */,
 				024823092B891DCE004AB8C4 /* Detail_View.swift */,
 				02BE070B2B717323007A691C /* ContentView.swift */,
-				0248230B2B891E07004AB8C4 /* ProductoListView.swift */,
 				0248230D2B893026004AB8C4 /* ProductoRow.swift */,
 				42BF24412B963F72001A700E /* FooterView.swift */,
-				42BF24452B965260001A700E /* AccountView.swift */,
-				42BF24472B965271001A700E /* OrderView.swift */,
 				42BF244C2B9662B6001A700E /* RatingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		42CFD63D2B9F7E2D00C5E805 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				42BF24452B965260001A700E /* AccountView.swift */,
+				0248230B2B891E07004AB8C4 /* ProductoListView.swift */,
+				42BF24472B965271001A700E /* OrderView.swift */,
+			);
+			path = MainViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct FooterView: View {
-    
+    @EnvironmentObject var opciones: Opciones
     var body: some View {
         TabView {
             ProductoListView(list: ProductosViewModel())
-                .tabItem {
+                .environmentObject(opciones)                .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
             AccountView()
@@ -21,6 +21,7 @@ struct FooterView: View {
                     Label("Account", systemImage: "person.fill")
                 }
             OrderView()
+                .environmentObject(opciones)
                 //.badge(_ Count:int)
                 .tabItem {
                     Label("Order", systemImage: "cart.fill")

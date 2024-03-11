@@ -8,6 +8,9 @@
 import Foundation
 
 class Opciones: ObservableObject {
-    @Published var fondoClaro = true
-    @Published var pantalla = 1
+    @Published var seleccion : [Producto]
+    
+    init() {
+        self.seleccion = [Producto]()
+    }
 }
