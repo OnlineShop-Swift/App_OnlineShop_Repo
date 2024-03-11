@@ -45,6 +45,7 @@ struct Detail_View: View {
     }
 }
 struct BotonAddCart : View {
+    @ObservedObject private var vm = ProductosViewModel()
     @Binding var producto: Producto
     @EnvironmentObject var opciones: Opciones
     var body: some View {
