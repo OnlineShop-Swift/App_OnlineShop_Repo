@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FooterView: View {
     @EnvironmentObject var opciones: Opciones
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         TabView {
             ProductoListView(list: ProductosViewModel())
@@ -26,8 +27,12 @@ struct FooterView: View {
                 .tabItem {
                     Label("Order", systemImage: "cart.fill")
                 }
+                
+                
             
         }
+        //.accentColor(colorScheme == .dark ? Color.green: Color.coloPrim)
+        .accentColor(Color.coloPrueba)
 
     }
 
