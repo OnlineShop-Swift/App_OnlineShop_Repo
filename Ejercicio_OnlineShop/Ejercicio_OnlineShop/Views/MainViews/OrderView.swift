@@ -46,6 +46,9 @@ struct BotonAddOrder : View {
     
     func addOrder() {
         
+            vm.add(opciones: opciones)
+
+        
     }
     func precioTotal() -> String{
         var total = 0.0
