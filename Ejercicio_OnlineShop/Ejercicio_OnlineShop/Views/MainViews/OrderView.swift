@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OrderView: View {
+    @EnvironmentObject var opciones: Opciones
     var body: some View {
         Text("Hello, Order!")
     }

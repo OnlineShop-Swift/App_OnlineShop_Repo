@@ -22,7 +22,7 @@ struct FooterView: View {
                 }
             OrderView()
                 .environmentObject(opciones)
-                //.badge(_ Count:int)
+                .badge(opciones.seleccion.count)
                 .tabItem {
                     Label("Order", systemImage: "cart.fill")
                 }
