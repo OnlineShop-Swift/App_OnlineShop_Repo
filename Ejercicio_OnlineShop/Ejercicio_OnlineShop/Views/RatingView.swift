@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct RatingView: View {
     var rating: Decimal
-
+    //@Environment(\.colorScheme) var colorScheme
     public var body: some View {
         ZStack {
             BackgroundStars(color: Color.yellow)

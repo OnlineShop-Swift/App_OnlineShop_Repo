@@ -10,6 +10,7 @@ import Foundation
 
 struct ProductoListView: View {
     @ObservedObject var list: ProductosViewModel
+    @Environment(\.colorScheme) var colorScheme
     //@EnvironmentObject var opciones: Opciones
     var body: some View {
         NavigationSplitView{

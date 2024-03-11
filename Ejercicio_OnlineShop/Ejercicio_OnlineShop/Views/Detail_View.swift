@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct Detail_View: View {
     @State var producto: Producto
+    //@State var captura : UIImage
 
     var body: some View {
         VStack {
