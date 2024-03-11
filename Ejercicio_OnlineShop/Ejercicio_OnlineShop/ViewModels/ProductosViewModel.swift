@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class ProductosViewModel: ObservableObject {
     @Published var productos: [Producto]
+    @Published var carro = [Producto]()
+    private var db = Firestore.firestore()
     init() {
         self.productos = [Producto]()
         getProductos()
@@ -40,4 +43,28 @@ class ProductosViewModel: ObservableObject {
                 }
             }
         }
+    
+    func all() {
+        db.collection("carro").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("ERROR: No hay productos")
+                return
+            }
+
+            self.carro = documents.map { (queryDocumentSnapshot) -> Producto in
+                let data = queryDocumentSnapshot.data()
+                let id = data["id"] as? Int ?? 0
+                let title = data["title"] as? String ?? ""
+                let price = data["price"] as? Double ?? 0.0
+                let description = data["description"] as? String ?? ""
+                let image = data["image"] as? String ?? ""
+                let rating = data["rating"] as? Double ?? 0.0
+                return Producto(id: id, title: title, price: price, description: description, image: image, rating: Rating(rate: rating))
+            }
+        }
+    }
+
+    func add(id: Int, title: String, price: Double, description: String, image: String, rating: Rating) {
+        db.collection("carro").addDocument(data: ["id": id,"title": title, "price": price, "description": description, "image": image, "rating": rating.rate])
+    }
 }
