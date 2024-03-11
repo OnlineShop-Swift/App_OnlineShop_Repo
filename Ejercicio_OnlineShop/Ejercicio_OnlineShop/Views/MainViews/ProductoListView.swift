@@ -10,12 +10,14 @@ import Foundation
 
 struct ProductoListView: View {
     @ObservedObject var list: ProductosViewModel
-    //@EnvironmentObject var opciones: Opciones
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var opciones: Opciones
     var body: some View {
         NavigationSplitView{
                 List(list.productos){ current in
                     NavigationLink{
                         Detail_View(producto: current)
+                            .environmentObject(opciones)
                     } label: {
                         ProductoRow(producto: current)
                     }
