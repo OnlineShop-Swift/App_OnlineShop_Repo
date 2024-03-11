@@ -45,7 +45,7 @@ class ProductosViewModel: ObservableObject {
         }
     
     func all() {
-        db.collection("carro").addSnapshotListener { (querySnapshot, error) in
+        db.collection("orders").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("ERROR: No hay productos")
                 return
@@ -64,7 +64,13 @@ class ProductosViewModel: ObservableObject {
         }
     }
 
-    func add(id: Int, title: String, price: Double, description: String, image: String, rating: Rating) {
-        db.collection("carro").addDocument(data: ["id": id,"title": title, "price": price, "description": description, "image": image, "rating": rating.rate])
-    }
+    func add(opciones: Opciones) {
+            var order = Order(productos: opciones.seleccion)
+            do{
+                try db.collection("orders").addDocument(from: order)
+                opciones.seleccion = []
+            }catch{
+                print(error)
+            }
+        }
 }
