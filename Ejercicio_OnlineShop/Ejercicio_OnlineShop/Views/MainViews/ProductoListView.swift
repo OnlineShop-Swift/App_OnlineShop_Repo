@@ -13,21 +13,27 @@ struct ProductoListView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var opciones: Opciones
     var body: some View {
-        NavigationSplitView{
-                List(list.productos){ current in
-                    NavigationLink{
-                        Detail_View(producto: current)
-                            .environmentObject(opciones)
-                    } label: {
-                        ProductoRow(producto: current)
+        ZStack{
+            NavigationSplitView{
+                    List(list.productos){ current in
+                        NavigationLink{
+                            Detail_View(producto: current)
+                                .environmentObject(opciones)
+                            
+                        } label: {
+                            ProductoRow(producto: current)
+                        }
                     }
-                }
-                .navigationTitle("Products")
-            
+                    .navigationTitle("Products")
+                
             }detail: {
                 Text("Select Product")
             }
-       
+            .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+            Text("Hola")
+                .background(Color.white)
+                
+        }
         
     }
 }
