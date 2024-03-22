@@ -40,7 +40,7 @@ struct Detail_View: View {
             
         }
         .padding()
-        .background(colorScheme == .dark ? Color.black: Color.white)
+        //.background(colorScheme == .dark ? Color.black: Color.white)
         
         
         
