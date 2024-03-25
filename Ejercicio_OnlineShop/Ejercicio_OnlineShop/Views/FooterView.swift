@@ -17,7 +17,6 @@ struct FooterView: View {
                     Label("Home", systemImage: "house.fill")
                 }
             AccountView()
-                
                 .tabItem {
                     Label("Account", systemImage: "person.fill")
                 }
