@@ -13,32 +13,57 @@ struct Detail_View: View {
     @EnvironmentObject var opciones: Opciones
     @Environment(\.colorScheme) var colorScheme
     //@State var captura : UIImage
-
+    
     var body: some View {
-        VStack {
-            AsyncImage(url: URL(string: producto.image)){ image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 150, height: 150)
-            .padding(.bottom)
+        HStack{
             
-            Text(producto.title)
-                .font(.title)
-                .padding(.vertical)
-                .fontWeight(.bold)
-            Text(producto.description)
-                .font(.title)
-                .padding(.vertical)
-                .lineLimit(3)
-            RatingView(rating: Decimal(producto.rating.rate))
+            VStack {
+                AsyncImage(url: URL(string: producto.image)){ image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 170, height: 200)
                 .padding(.bottom)
-            BotonAddCart(producto: $producto)
-                .environmentObject(opciones)
-        
-            
+
+                Text(producto.title)
+                    .font(.title3)
+                    .padding(.vertical)
+                    .fontWeight(.bold)
+                Text(producto.description)
+                    .padding(.vertical)
+                    .lineLimit(3)
+                RatingView(rating: Decimal(producto.rating.rate))
+                    .padding(.bottom)
+                BotonAddCart(producto: $producto)
+                    .environmentObject(opciones)
+            }
+            .padding([.top, .bottom, .leading], 20)
+            VStack{
+                BotonCerrar()
+                    .padding(.top,5)
+                    Spacer()
+                
+                    
+            }
         }
+        .background(Color.white)
+    }
+    
+}
+
+struct BotonCerrar : View {
+    @EnvironmentObject var opciones: Opciones
+    
+    var body: some View {
+        Button("", systemImage:"xmark", action: cerrar)
+            .fontWeight(.bold)
+            .foregroundColor(.black)
+            .padding(.trailing, 20)
+        
+    }
+    func cerrar() {
+        opciones.seleccionado = false
     }
 }
 struct BotonAddCart : View {
@@ -59,5 +84,6 @@ struct BotonAddCart : View {
     func addCart() {
         opciones.seleccion.append(producto)
     }
+    
     
 }
