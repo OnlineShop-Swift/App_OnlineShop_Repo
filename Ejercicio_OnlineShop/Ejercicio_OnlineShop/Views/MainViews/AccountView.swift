@@ -15,6 +15,9 @@ struct AccountView: View {
     @State var birthday: Date = Date.now
     @State var vip: Bool = false
     @State var ofertas: Bool = false
+    @State private var showAlert = false
+    @State private var mensaje = "Your profile was succesfully saved"
+
     /*
     init() {
         self.nombre = UserDefaults.standard.string(forKey: "nombre") ?? ""
@@ -56,12 +59,19 @@ struct AccountView: View {
                     }
                     .toggleStyle(SwitchToggleStyle(tint: Color.coloPrueba))
                     Button("Save changes", action: guardarCambios)
+                        .alert(isPresented: $showAlert){
+                            Alert(
+                                title: Text("Profile saved"),
+                                message: Text(mensaje)
+                            )
+                        }
                     
                 }
                 .onAppear{
                     self.nombre = UserDefaults.standard.string(forKey: "nombre") ?? ""
                     self.apellido = UserDefaults.standard.string(forKey: "apellido") ?? ""
                     self.email = UserDefaults.standard.string(forKey: "email") ?? ""
+                    //self.birthday = fecha( texto: UserDefaults.standard.string(forKey: "birthday") ?? "01-01-2024")
                     self.birthday = fecha( texto: UserDefaults.standard.string(forKey: "birthday") ?? "01-01-2024")
                     self.vip = UserDefaults.standard.bool(forKey: "vip")
                     self.ofertas = UserDefaults.standard.bool(forKey: "ofertas")
@@ -73,24 +83,29 @@ struct AccountView: View {
         
     }
     func fecha(texto: String) -> Date{
-        
         let dateFormatter = DateFormatter()
-        
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         let fecha = dateFormatter.date(from: texto) ?? Date()
-        print(dateFormatter.date(from: texto) as Any)
-        print(fecha)
-        
         return fecha
     }
     
     func guardarCambios(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+
         UserDefaults.standard.set(nombre, forKey: "nombre")
         UserDefaults.standard.set(apellido, forKey: "apellido")
         UserDefaults.standard.set(email, forKey: "email")
-        UserDefaults.standard.set(birthday, forKey: "birthday")
+        if(Date.now > birthday){
+            UserDefaults.standard.set(dateFormatter.string(from: birthday), forKey: "birthday")
+            mensaje = "Your profile was succesfully saved"
+        } else {
+            print("No guardamos la fecha")
+            mensaje = "Your profile was succesfully saved, except the birthday."
+        }
         UserDefaults.standard.set(vip, forKey: "vip")
         UserDefaults.standard.set(ofertas, forKey: "ofertas")
-
+        showAlert = true
         //self.presentationMode.wrappedValue.dismiss()
         
     }
