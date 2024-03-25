@@ -27,12 +27,14 @@ struct ProductoListView: View {
                         opciones.elproducto = current
                     }
                 }.navigationTitle("Products")
+                
                     
                 
             }detail: {
                 Text("Select Product")
             }
             .blur(radius: opciones.seleccionado ? 10.0 : 0.0)
+            .disabled(opciones.seleccionado ? true : false)
             if (opciones.seleccionado){
                 Detail_View(producto: opciones.elproducto)
                     .environmentObject(opciones)
@@ -44,6 +46,7 @@ struct ProductoListView: View {
             
                 
         }
+        
         
     }
 }
