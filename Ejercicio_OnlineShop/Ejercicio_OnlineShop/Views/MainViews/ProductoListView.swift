@@ -37,6 +37,7 @@ struct ProductoListView: View {
                 Detail_View(producto: opciones.elproducto)
                     .environmentObject(opciones)
                     .frame(maxWidth: 300, maxHeight: 550)
+                    
                     .cornerRadius(20)
             }
             

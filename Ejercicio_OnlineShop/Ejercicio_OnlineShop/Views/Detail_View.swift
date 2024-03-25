@@ -25,7 +25,7 @@ struct Detail_View: View {
                 }
                 .frame(width: 170, height: 200)
                 .padding(.bottom)
-
+                
                 Text(producto.title)
                     .font(.title3)
                     .padding(.vertical)
@@ -42,9 +42,9 @@ struct Detail_View: View {
             VStack{
                 BotonCerrar()
                     .padding(.top,5)
-                    Spacer()
+                Spacer()
                 
-                    
+                
             }
         }
         .background(Color.white)
@@ -59,7 +59,7 @@ struct BotonCerrar : View {
         Button("", systemImage:"xmark", action: cerrar)
             .fontWeight(.bold)
             .foregroundColor(.black)
-            .padding(.trailing, 20)
+            .padding(.trailing, 5)
         
     }
     func cerrar() {
@@ -72,13 +72,12 @@ struct BotonAddCart : View {
     @EnvironmentObject var opciones: Opciones
     var body: some View {
         Button("$" + String(producto.price) + " - Checkout", action: addCart)
-            .padding()
-            .padding(.horizontal)
-            .foregroundColor(.white)
-            .background(Color.coloPrueba)
-            .cornerRadius(10.0)
-            .fontWeight(.bold)
-        
+        .padding()
+        .padding(.horizontal)
+        .foregroundColor(.white)
+        .background(Color.coloPrueba)
+        .cornerRadius(10.0)
+        .fontWeight(.bold)
     }
     
     func addCart() {
